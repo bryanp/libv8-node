@@ -17,6 +17,10 @@ module Libv8::Node
     end
 
     def self.load!
+      puts "!!!"
+      puts File.read(Pathname(__FILE__).dirname.join('.location.yml'))
+      puts "~~~"
+
       File.open(Pathname(__FILE__).dirname.join('.location.yml')) do |f|
         YAML.respond_to?(:unsafe_load) ? YAML.unsafe_load(f) : YAML.load(f) # rubocop:disable Security/YAMLLoad
       end
